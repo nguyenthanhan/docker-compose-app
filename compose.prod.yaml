@@ -14,7 +14,7 @@ services:
       - my_network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.nextjs.rule=Host(`${DOMAIN})"
+      - "traefik.http.routers.nextjs.rule=Host(`${DOMAIN}`)"
       - "traefik.http.routers.nextjs.entrypoints=websecure"
       - "traefik.http.routers.nextjs.tls=true"
       - "traefik.http.routers.nextjs.tls.certresolver=cloudflare"
