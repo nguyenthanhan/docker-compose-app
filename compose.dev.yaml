@@ -21,7 +21,13 @@ services:
       - 3000:3000
     networks:
       - my_network
-
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nextjs.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.nextjs.entrypoints=websecure"
+      - "traefik.http.routers.nextjs.tls=true"
+      - "traefik.http.routers.nextjs.tls.certresolver=cloudflare"
+      - "traefik.http.services.nextjs.loadbalancer.server.port=3000"
   # Add more containers below (nginx, postgres, etc.)
 
 # Define a network, which allows containers to communicate
